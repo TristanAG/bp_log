@@ -29,7 +29,7 @@ class LogsController < ApplicationController
 
     respond_to do |format|
       if @log.save
-        format.html { redirect_to @log, notice: 'Log was successfully created.' }
+        format.html { redirect_to new_log_path, notice: 'Log was successfully created.' }
         format.json { render :show, status: :created, location: @log }
       else
         format.html { render :new }
@@ -69,7 +69,7 @@ class LogsController < ApplicationController
     end
 
     def get_all_logs
-      @logs = Log.all
+      @logs = Log.all.order("created_at DESC")
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

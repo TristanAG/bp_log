@@ -1,17 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Logs</h1>
-
-
-  
-
-    <% @logs.each do |log| %>
-        <%= log.created_at.strftime('%b %e, %l:%M %p') %><br>
-        <b><%= log.systolic %> / <%= log.diastolic %></b><br>
-        <br>
-    <% end %>
-
-<br>
-
 
 <%= link_to 'New Log', new_log_path %>
+
+    <% @logs.each do |log| %>
+      <p>
+        <%= log.created_at.strftime('%b %e, %l:%M %p') %><br>
+        <b><%= log.systolic %> / <%= log.diastolic %></b>
+      </p>
+    <% end %>
+<br>
